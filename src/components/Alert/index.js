@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
 import { AppContext } from "../../context";
 
-const Alert = ({ alert }) => {
-  console.log(alert);
+import "./style.css";
+
+const Alert = () => {
   const { dispatchAlertEvent } = useContext(AppContext);
 
   const handleAlert = () => {
     dispatchAlertEvent("PRESS_BUTTON", { text: "Hello World" });
   };
   return (
-    <div>
+    <div className='btn-wrapper'>
       <button onClick={handleAlert}>Click Me</button>
     </div>
   );

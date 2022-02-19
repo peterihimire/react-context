@@ -1,0 +1,10 @@
+.btn-wrapper {
+  margin-top: 40px;
+}
+button {
+  padding: 20px 40px;
+  background-color: blue;
+  color: white;
+  border-radius: 6px;
+  border: none;
+}
