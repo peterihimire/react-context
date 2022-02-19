@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import AlertPage from "./pages/AlertPage";
+import { AppContext } from "./context";
 
 function App() {
+  const [alertW, setAlertW] = useState("");
+
+  const dispatchAlertEvent = (actionType, payload) => {
+    switch (actionType) {
+      case "PRESS_BUTTON":
+        // setAlert([...users, payload.newUser]);
+        setAlertW(...alertW, payload.text);
+        return alert(payload.text);
+
+      default:
+        return;
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <AppContext.Provider value={{ alert, dispatchAlertEvent }}>
+        <AlertPage />
+      </AppContext.Provider>
     </div>
   );
 }
