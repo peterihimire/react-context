@@ -11,7 +11,8 @@ function App() {
       case "PRESS_BUTTON":
         // setAlert([...users, payload.newUser]);
         setAlertW(...alertW, payload.text);
-        return alert(payload.text);
+        alert(payload.text);
+        return;
 
       default:
         return;
